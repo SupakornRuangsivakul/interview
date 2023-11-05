@@ -11,9 +11,6 @@ import (
 // LimitMiddleware is an HTTP middleware that rate limits requests.
 func LimitMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		// Check if the limiter allows another event.
-		// userRate := c.GetFloat64("rate")
-		// userBurst := c.GetInt("burst")
 		limiter := getUserLimiter(c.GetString("level"))
 		// var limiter = rate.NewLimiter(1, 1)
 		if !limiter.Allow() {
