@@ -94,37 +94,3 @@ func UpdateCard(c *gin.Context) {
 	// }
 
 }
-
-// client := model.GetMongoClient(ctx)
-// 	card, err := getCardByID(req.CardID, client, ctx)
-// 	if err != nil {
-// 		c.JSON(http.StatusInternalServerError, err)
-// 		return
-// 	}
-// 	collection := client.Database("interviewrbh").Collection("changeLogCard")
-// 	now := time.Now()
-// 	changeLogCard := changeLogCard{
-// 		CardID:     card.ID.Hex(),
-// 		CardDetail: card.CardDetail,
-// 		CardName:   card.CardName,
-// 		CardStatus: card.CardStatus,
-// 		CreatedBy:   user,
-// 		CreatedAt:   now,
-// 	}
-// 	_, err = collection.InsertOne(context.Background(), changeLogCard)
-// 	if err != nil {
-// 		c.JSON(http.StatusInternalServerError, err)
-// 		return
-// 	}
-// 	card.CardDetail = req.CardDetail
-// 	card.CardStatus = req.CardStatus
-// 	card.CardName = req.CardName
-// 	id, err := primitive.ObjectIDFromHex(req.CardID)
-// 	if err != nil {
-// 		c.JSON(http.StatusInternalServerError, err)
-// 		return
-// 	}
-// 	updateResult, err := collection.UpdateByID(context.Background(), id, card)
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
