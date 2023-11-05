@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    environment:
+      # Set the environment variable for MongoDB URI if your app requires it
+      MONGO_URI: mongodb://root:password@mongo:27017/interviewrbh
+      # Replace 'mydatabase' with your database name
+      # 'root' and 'password' are the credentials used below in the MongoDB service
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
+volumes:
+  mongodata:
